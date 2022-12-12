@@ -1,13 +1,27 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
+import supabase from '../utils/supabase';
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-<h1>Hello World</h1>   </div>
-  )
+export async function getStaticProps() {
+  const { data: posts, error } = await supabase.from('posts').select('*');
+
+  if (error) {
+    throw new Error(error);
+  }
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
 
-console.log()
+export default function Home({ posts }) {
+  console.log(supabase.auth.user());
 
+  return (
+    <div className={styles.container}>
+      <h1>Hello chat!</h1>
+      <pre>{JSON.stringify(posts, null, 2)}</pre>
+    </div>
+  );
+}
