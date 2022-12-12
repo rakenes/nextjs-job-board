@@ -1,5 +1,5 @@
 import styles from '../styles/Home.module.css';
-import supabase from '../utils/supabase';
+import supabase from 'utils-supabase.js/supabase.js';
 
 export async function getStaticProps() {
   const { data: posts, error } = await supabase.from('posts').select('*');

@@ -1,13 +1,18 @@
 {
-  "name": "nextjs-job-board",
-  "version": "1.0.0",
-  "description": "",
+  "name": "nextjs-job-borad",
+  "version": "0.1.0",
+  "description": "job board for norwegian jobs in fisheries",
   "main": "index.js",
+  "private": false,
   "scripts": {
-    "dev": "next"
-},
-
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "13.0.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
 }
